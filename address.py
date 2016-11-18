@@ -6,8 +6,8 @@ address = str(raw_input("Enter an address: "))
 url = pre + address
 
 query = requests.get(url).json()
-lon = query[0]["lon"]
 lat = query[0]["lat"]
+lon = query[0]["lon"]
 
-print "\nCoordinates: " + lon + ", " + lat + "\n"
+print "\nCoordinates: " + lat + ", " + lon + "\n"
 print json.dumps(query, indent = 2)

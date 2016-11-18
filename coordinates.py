@@ -1,12 +1,12 @@
 import requests
 import json
 
-pre = "http://nominatim.openstreetmap.org/reverse?format=json&addressdetails=1&lon="
-lon = input("Enter longitude: ")
+pre = "http://nominatim.openstreetmap.org/reverse?format=json&addressdetails=1&lat="
 lat = input("Enter latitude: ")
-post = "&lat="
+lon = input("Enter longitude: ")
+post = "&lot="
 
-url = pre + str(lon) + post + str(lat)
+url = pre + str(lat) + post + str(lon)
 
 query = requests.get(url).json()
 address = query["display_name"]
