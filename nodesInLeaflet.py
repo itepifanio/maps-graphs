@@ -1,3 +1,4 @@
+import sys; sys.dont_write_bytecode = True
 import osmapi
 import json
 from nodesInWay import intersections
@@ -24,7 +25,6 @@ for entry in intersections:
             coordinatesPerNode.append([node['lat'],node['lon']])
 
 print len(coordinatesPerNode)
-
 
 # Remove duplicates, similar behavior as set() but for lists within lists
 coordinates = []
