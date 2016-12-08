@@ -1,2 +1,4 @@
 osmapi==0.6.2
 folium==0.2.1
+requests==2.12.3
+overpy==0.3.1
