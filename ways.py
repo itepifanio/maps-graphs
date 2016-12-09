@@ -2,6 +2,7 @@ import sys; sys.dont_write_bytecode = True # avoid .pyc files
 import json
 import osmapi; osmapi = osmapi.OsmApi()
 import folium
+from tqdm import tqdm
 
 # array of objects (list of dict), bounding box for Jesus Maria, Lima, Peru
 bbox = osmapi.Map(-77.063135, -12.093128, -77.039006, -12.064528)
@@ -25,8 +26,8 @@ for result in bbox:
         })
         '''
 
-for way in ways:
-    id = way['data']['id']
+for way in tqdm(ways):
+    id1 = way['data']['id']
     nodeIds = way['data']['nd']
     for nd in nodeIds:
         waysOfnode = osmapi.NodeWays(nd)
@@ -37,12 +38,15 @@ for way in ways:
                 waysOfnode.append(result)
         for way in waysOfnode:
             id2 = way['id']
-            if id2 is not id:
+            if id2 != id1:
+                # print str(id1) + " <> " + str(id2)
+                # print "########"
+                # print " "
                 nds.append(nd)
 
 # remove duplicates
 nds = list(set(nds))
 
 #print json.dumps(ways, indent=2, default=str)
-print nds
-print len(nds)
+print(nds)
+print(len(nds))
