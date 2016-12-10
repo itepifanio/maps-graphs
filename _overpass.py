@@ -1,12 +1,8 @@
 import sys; sys.dont_write_bytecode = True # avoid .pyc files
-
 import json
-import overpy
-
-overpy = overpy.Overpass()
+import overpy; overpy = overpy.Overpass()
 
 txt = open("nodes.txt", "w")
-
 
 result = overpy.query("""
 <osm-script>
@@ -39,7 +35,8 @@ result = overpy.query("""
 </osm-script>
  """)
 
-#print json.dumps(result.nodes, indent=2, default=str)
-print len(result.nodes)
 txt.write(str(result.nodes))
 txt.close()
+
+#print json.dumps(result.nodes, indent=2, default=str)
+print len(result.nodes)
