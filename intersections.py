@@ -14,7 +14,7 @@ intersections = list()
 # function to filter results coming from bbox into actual ways
 def filter_ways1(x):
     # check if we are talking about a street (has name and highway within its tags)
-    if x["type"] == "way" and ("name" and "highway") in x["data"]["tag"].keys():
+    if x["type"] == "way" and "name" in x["data"]["tag"].keys() and "highway" in x["data"]["tag"].keys():
         # check if we is not a litle pathway i.e. in the middle of a park
         if x["data"]["tag"]["highway"] is not ("footway" or "cycleway" or "path" or "service" or "track"):
             return True
@@ -23,7 +23,7 @@ ways1 = filter(filter_ways1, bbox)
 
 # function to filter results coming from osm_nodeways into actual ways
 def filter_ways2(x):
-    if ("name" and "highway") in x["tag"].keys():
+    if "name" in x["tag"].keys() and "highway" in x["tag"].keys():
         if x["tag"]["highway"] is not ("footway" or "cycleway" or "path" or "service" or "track"):
             return True
 
