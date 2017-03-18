@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/jdiegogonzales/maps-graphs#readme",
   "dependencies": {
-    "jsnetworkx": "^0.3.4"
+    "jsnetworkx": "^0.3.4",
+    "leaflet": "^1.0.3",
+    "leaflet.heat": "^0.2.0"
   }
 }
