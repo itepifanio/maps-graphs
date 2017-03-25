@@ -21,6 +21,10 @@ def filter_ways1(x):
 
 ways1 = filter(filter_ways1, bbox)
 
+# serialization in binary
+with open("in/ways.p", "wb") as bfile:
+    pickle.dump(ways1, bfile)
+
 # function to filter results coming from osm_nodeways into actual ways
 def filter_ways2(x):
     if "name" in x["tag"].keys() and "highway" in x["tag"].keys():
