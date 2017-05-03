@@ -52,5 +52,5 @@ intersections = list(set(intersections))
 print len(intersections)
 
 # serialization in binary
-with open("nodes.p", "wb") as bfile:
+with open("nodesIds.p", "wb") as bfile:
     pickle.dump(intersections, bfile)
